@@ -6,7 +6,7 @@ export function App() {
   }
 
   return (
-    <div className="App">
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
       <button onClick={() => handleDownload('darwin')}>
         Download MacOS
       </button>
