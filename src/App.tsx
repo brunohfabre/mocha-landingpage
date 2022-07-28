@@ -1,3 +1,5 @@
+import './App.css';
+
 type HandleDownloadData = 'darwin';
 
 export function App() {
@@ -6,7 +8,7 @@ export function App() {
   }
 
   return (
-    <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+    <div className="App">
       <button onClick={() => handleDownload('darwin')}>
         Download MacOS
       </button>
