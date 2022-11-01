@@ -9,6 +9,7 @@ export function App() {
 
   return (
     <div className="App">
+      app: 
       <button onClick={() => handleDownload('darwin')}>
         Download MacOS
       </button>
