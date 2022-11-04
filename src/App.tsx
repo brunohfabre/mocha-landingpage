@@ -1,18 +1,15 @@
-import './App.css';
+import { BrowserRouter } from 'react-router-dom'
 
-type HandleDownloadData = 'darwin';
+import { ChakraProvider } from '@chakra-ui/react'
+
+import { AppRoutes } from './routes/AppRoutes'
 
 export function App() {
-  function handleDownload(platform: HandleDownloadData): void {
-    window.location.assign(`https://storage.cloud.google.com/mocha-app/macos/Mocha-0.0.5.dmg`);
-  }
-
   return (
-    <div className="App">
-      app: 
-      <button onClick={() => handleDownload('darwin')}>
-        Download MacOS
-      </button>
-    </div>
+    <ChakraProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ChakraProvider>
   )
 }
