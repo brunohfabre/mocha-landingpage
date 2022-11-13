@@ -3,13 +3,14 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
 import { z } from 'zod'
 
-import { Flex, Button, Heading } from '@chakra-ui/react'
 import { FormHandles } from '@unform/core'
-import { Form } from '@unform/web'
 
-import { Input } from '../components/Input'
-import { api } from '../lib/api'
-import { getValidationErrors } from '../utils/getValidationErrors'
+import { Button } from '../../components/Button'
+import { Heading } from '../../components/Heading'
+import Input from '../../components/Input'
+import { api } from '../../lib/api'
+import { getValidationErrors } from '../../utils/getValidationErrors'
+import { Container, Form } from './styles'
 
 const resetPasswordFormSchema = z
   .object({
@@ -71,36 +72,32 @@ export function ResetPassword() {
   }
 
   return (
-    <Flex h="100vh" align="center" justify="center">
+    <Container>
+      <Heading size="lg">Reset password</Heading>
       <Form
         ref={formRef}
         onSubmit={handleSubmit}
         style={{ width: 320, display: 'flex', flexDirection: 'column', gap: 8 }}
       >
-        <Flex justify="center" mb="6">
-          <Heading size="lg" fontWeight="medium">
-            Reset password
-          </Heading>
-        </Flex>
-
-        <Input name="password" type="password" label="password" />
+        <Input
+          name="password"
+          type="password"
+          label="password"
+          placeholder="password"
+        />
 
         <Input
           name="confirmPassword"
           type="password"
           label="confirm password"
+          placeholder="confirm password"
         />
 
-        <Button type="submit" colorScheme="purple" mt="6">
-          reset password
-        </Button>
-
-        <Flex mt={8} justify="center">
-          <Link to="/" replace>
-            go to home
-          </Link>
-        </Flex>
+        <Button type="submit">reset password</Button>
       </Form>
-    </Flex>
+      <Link to="/" replace>
+        go to home
+      </Link>
+    </Container>
   )
 }

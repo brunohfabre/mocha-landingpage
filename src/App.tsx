@@ -1,15 +1,14 @@
 import { BrowserRouter } from 'react-router-dom'
 
-import { ChakraProvider } from '@chakra-ui/react'
-
 import { AppRoutes } from './routes/AppRoutes'
+import { globalStyles } from './styles/global'
+
+globalStyles()
 
 export function App() {
   return (
-    <ChakraProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </ChakraProvider>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
