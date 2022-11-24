@@ -1,14 +1,18 @@
 import { BrowserRouter } from 'react-router-dom'
 
-import { AppRoutes } from './routes/AppRoutes'
-import { globalStyles } from './styles/global'
+import './styles/global.css'
 
-globalStyles()
+import { QueryClientProvider } from '@tanstack/react-query'
+
+import { queryClient } from './lib/react-query'
+import { AppRoutes } from './routes/AppRoutes'
 
 export function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </QueryClientProvider>
   )
 }
